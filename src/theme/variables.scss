@@ -11,6 +11,9 @@ $font-path: "../assets/fonts";
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
 
+// Custom grid sizing
+$grid-padding-width:  2px;
+$grid-columns: 12;
 
 @import "ionic.globals";
 
@@ -38,7 +41,8 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  navbarColor: red
 );
 
 

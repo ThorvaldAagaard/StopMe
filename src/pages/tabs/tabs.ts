@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
+import { IonicPage, NavParams } from 'ionic-angular';
 
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
-import { HomePage } from '../home/home';
-
+@IonicPage({
+  segment: 'tabs',
+  name: 'tabs'
+})
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
-
-  constructor() {
+  tab1Root = 'home';
+  tab2Root = 'map';
+  tab3Root = 'settings';
+  mySelectedIndex: number = 0;
+  constructor(private navParams: NavParams) {
+    this.mySelectedIndex = this.navParams.data.tabIndex || 0;
 
   }
 }

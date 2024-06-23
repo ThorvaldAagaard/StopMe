@@ -1,17 +1,44 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="navbarColor">
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
+  <h2>Velkommen til Stop Me</h2>
   <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+    <ion-row>
+      <button ion-button color="dark" round icon-start (click)=getPosition()>
+        <ion-icon name='construct' is-active="false"></ion-icon>
+        Hent position
+      </button>
+    </ion-row>
+
+    <ion-row>
+      <button ion-button color="dark" round icon-start (click)=getStatus()>
+        <ion-icon name='construct' is-active="false"></ion-icon>
+        Hent status
+      </button>
+    </ion-row>
+
+    <ion-row>
+      <button ion-button color="dark" round icon-start (click)=turnOn()>
+        <ion-icon name='construct' is-active="false"></ion-icon>
+        Aktiver enhed
+      </button>
+    </ion-row>
+    <ion-row>
+
+      <button ion-button color="dark" round icon-start (click)=turnOff()>
+        <ion-icon name='construct' is-active="false"></ion-icon>
+        Deaktiver enhed
+      </button>
+    </ion-row>
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p>{{ statusMessage }}</p>
+  </ion-toolbar>
+</ion-footer>

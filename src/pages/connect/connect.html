@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-navbar color="navbarColor">
+    <ion-title>Forbind</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-grid text-center>
+    <ion-row>
+      <ion-col col-3></ion-col>
+      <ion-col col-6>
+        <h6 class="topText">Indtast oplysninger</h6>
+      </ion-col>
+      <ion-col col-3></ion-col>
+    </ion-row>
+
+    <form [formGroup]="connectForm" (submit)="connect()" novalidate>
+
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col col-10>
+          <ion-item mode="ios">
+            <ion-input placeholder="Mobil nummer" mode="ios" #mobile formControlName="mobile" type="number" (change)="elementChanged(mobile)"
+              [class.invalid]="!connectForm.controls.mobile.valid && (mobileChanged || submitAttempt)"></ion-input>
+          </ion-item>
+          <ion-item mode="ios" *ngIf="!connectForm.controls.mobile.valid  && (mobileChanged || submitAttempt)">
+            <h6>Indtast korrekt nummer</h6>
+          </ion-item>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col col-10>
+          <ion-item mode="ios">
+            <ion-input placeholder="Device ID" mode="ios" #mobile formControlName="device" type="text" (change)="elementChanged(device)"
+              [class.invalid]="!connectForm.controls.device.valid && (deviceChanged || submitAttempt)"></ion-input>
+          </ion-item>
+          <ion-item mode="ios" *ngIf="!connectForm.controls.device.valid  && (deviceChanged || submitAttempt)">
+            <h6>Indtast korrekt nummer</h6>
+          </ion-item>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-12>&nbsp;</ion-col>
+      </ion-row>
+
+
+    </form>
+    <ion-row>
+      <ion-col col-3></ion-col>
+      <ion-col col-6>
+        <button block ion-button mode="ios" color="secondary" (click)="connect()">Forbind</button>
+      </ion-col>
+      <ion-col col-3></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-3></ion-col>
+      <ion-col col-6>
+        <button block ion-button mode="ios" color="secondary" (click)="disconnect()">Afbryd</button>
+      </ion-col>
+      <ion-col col-3></ion-col>
+    </ion-row>
+  
+  </ion-grid>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p>{{ statusMessage }}</p>
+  </ion-toolbar>
+</ion-footer>

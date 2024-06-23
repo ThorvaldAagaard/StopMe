@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="navbarColor">
+    <ion-title text-center center class="ionTitle">Kort</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div #map id="map"></div>
+<ion-row>
+  <button ion-button color="dark" round icon-start (click)=getPosition()>
+    <ion-icon name='construct' is-active="false"></ion-icon>
+    Opdater position
+  </button>
+</ion-row>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <p>{{ statusMessage }}</p>
+  </ion-toolbar>
+</ion-footer>

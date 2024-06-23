@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="navbarColor">
+    <ion-title>Indstillinger</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button color="dark" round icon-start (click)=search()>
+          <ion-icon name='construct' is-active="false"></ion-icon>
+          Søg efter enheder
+  </button>
+
+  <ion-list>
+    <ion-item *ngFor="let device of devices">
+    
+      <div class="buttons">
+        <h2>{{ device.name || 'Unnamed' }}</h2>
+        <p>{{ device.id }}</p>
+        <button class="button button-positive" block ion-button mode="ios" color="secondary" (click)="deviceSelected(device)">
+                     Detaljer
+                  </button>
+            <br>
+            <button class="button button-assertive" block ion-button mode="ios" color="secondary" (click)="deviceConnect(device)">
+                       Forbind
+                    </button>
+
+                  <br/>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-row>
+    <button class="button button-assertive" block ion-button mode="ios" color="secondary" (click)="manualConnect()">
+               Manuel registrering
+            </button>
+    </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p>{{ statusMessage }}</p>
+  </ion-toolbar>
+</ion-footer>
